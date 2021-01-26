@@ -45,27 +45,32 @@
     flex-direction: column;
 }
 
-/*Section player1 */
+/*Section player */
 
 .current-score-wrapper {
     display: flex;
     flex-direction: column;
     width: 130px;
+    height: 100px;
     background: red;
+    position: relative;
+}
+.current-score-wrapper > h5 {
+    margin: 0;
 }
 .total-score-wrapper {
     display: flex;
     flex-direction: column;
 }
 
-/* Section player2 */
-
 /*Section game-controls */
 .dice {
     width: 120px;
     height: 120px;
     margin-top: 70px;
-    background: red;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 1px 4px 26px 5px rgba(0, 0, 0, 0.19);
 }
 .controls {
     display: flex;
@@ -111,4 +116,39 @@
     right: -30px;
     top: 6px;
     position: absolute;
+}
+
+/*Dice fetaure*/
+.one {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.two {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.three {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.four {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.five {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.six {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.seven {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
 }
