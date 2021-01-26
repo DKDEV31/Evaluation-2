@@ -25,40 +25,51 @@
     </head>
     <body>
         <main class="game-content">
-            <h1 class="new-game ion-text-uppercase">new game</h1>
+            <div class="title-wrapper ion-align-items-center ion-justify-content-between">
+                <i class="new-game-icon far fa-play-circle fa-2x ion-padding"></i>
+                <h1 class="new-game ion-text-uppercase">new game</h1>
+            </div>
             <section class="player1 ion-align-items-center ion-justify-content-between">
                 <div
                     class="total-score-wrapper ion-text-uppercase ion-align-items-center ion-justify-content-center ion-padding"
                 >
-                    <h3 class="player-name ion-text-uppercase">player 1</h3>
-                    <span class="total-score">0</span>
+                    <h3 class="player-name ion-text-uppercase" id="player1">player 1</h3>
+                    <span class="total-score" id="total1">0</span>
                 </div>
                 <div
                     class="current-score-wrapper ion-text-uppercase ion-justify-content-center ion-align-items-center ion-padding"
                 >
                     <h5 class="current ion-text-uppercase">currrent</h5>
-                    <span class="current-score">0</span>
+                    <span class="current-score" id="current1">0</span>
                 </div>
             </section>
             <section class="game-controls ion-align-items-center ion-justify-content-between">
                 <div class="dice"></div>
                 <div class="controls ion-align-items-center ion-justify-content-between">
-                    <span class="roll ion-text-uppercase">roll dice</span>
-                    <span class="hold ion-text-uppercase">hold</span>
+                    <div class="roll-wrapper ion-align-items-center ion-justify-content-between">
+                        <i class="roll-icon fas fa-sync fa-md ion-padding-horizontal"></i>
+                        <span class="roll ion-text-uppercase">roll dice</span>
+                    </div>
+                    <div class="hold-wrapper ion-align-items-center ion-justify-content-between">
+                        <i
+                            class="hold-icon fas fa-angle-double-down fa-md ion-padding-horizontal"
+                        ></i>
+                        <span class="hold ion-text-uppercase">hold</span>
+                    </div>
                 </div>
             </section>
             <section class="player2 ion-justify-content-between ion-align-items-center">
                 <div
                     class="total-score-wrapper ion-text-uppercase ion-align-items-center ion-justify-content-center ion-padding"
                 >
-                    <h3 class="player-name ion-text-uppercase">player 2</h3>
-                    <span class="total-score">0</span>
+                    <h3 class="player-name ion-text-uppercase" id="player2">player 2</h3>
+                    <span class="total-score" id="total2">0</span>
                 </div>
                 <div
                     class="current-score-wrapper ion-text-uppercase ion-justify-content-center ion-align-items-center ion-padding"
                 >
                     <h5 class="current ion-text-uppercase">currrent</h5>
-                    <span class="current-score">0</span>
+                    <span class="current-score" id="current2">0</span>
                 </div>
             </section>
         </main>
