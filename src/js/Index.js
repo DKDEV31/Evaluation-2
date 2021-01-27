@@ -19,6 +19,9 @@ const five = $('.five')
 const six = $('.six')
 const seven = $('.seven')
 const dice = $('.dice')
+const replayButton = $('.replay-button')
+const winnerPage = $('.winner-wrapper')
+const winnerPlayer = $('.winner-player')
 //Variables
 let round = 0
 let globalPlayer1 = 0
@@ -28,6 +31,7 @@ let diceRender = 0
 let gameOn = false
 let timer
 //Instructions
+replayButton.click(() => replay())
 
 newGame.click(() => {
     playAgain()
@@ -60,11 +64,9 @@ function rollAgain() {
         clearTimeout(timer)
         dice.addClass('dice-rotation')
         diceRoll(0)
-        let randomDiceShot = Math.floor(Math.random() * 6)
-        console.log(randomDiceShot)
+        let randomDiceShot = Math.floor(Math.random() * (7 - 1) + 1)
         timer = setTimeout(() => {
             if (randomDiceShot !== 1) {
-                console.log('execute')
                 round += randomDiceShot
                 diceRender = randomDiceShot
                 diceRoll(diceRender)
@@ -112,6 +114,11 @@ function hold() {
             player1.toggleClass('active-player')
             totalPlayer2.text(globalPlayer2)
         }
+        if (globalPlayer1 >= 100) {
+            win('Player1')
+        } else if (globalPlayer2 >= 100) {
+            win('Player2')
+        }
     }
 }
 
@@ -126,6 +133,8 @@ function playAgain() {
     player1.addClass('active-player')
     round1.text(0)
     round2.text(0)
+    totalPlayer1.text(0)
+    totalPlayer2.text(0)
     diceRoll(0)
 }
 
@@ -176,4 +185,13 @@ function diceRoll(diceNumber) {
         default:
             break
     }
+}
+
+function replay() {
+    winnerPage.css({ opacity: '0', display: 'none' })
+    playAgain()
+}
+function win(player) {
+    winnerPage.css({ opacity: '1', display: 'flex' })
+    winnerPlayer.text(player)
 }
