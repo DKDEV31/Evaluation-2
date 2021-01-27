@@ -71,6 +71,7 @@
     background: white;
     border-radius: 3px;
     box-shadow: 1px 4px 26px 5px rgba(0, 0, 0, 0.19);
+    transform-origin: center;
 }
 .controls {
     display: flex;
@@ -151,4 +152,19 @@
 .seven {
     opacity: 0;
     transition: all 0.5s ease-in-out;
+}
+
+/* Dice Rotation */
+
+@keyframes diceRotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+.dice-rotation {
+    animation: 2s diceRotation ease-in-out;
 }

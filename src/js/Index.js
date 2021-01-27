@@ -18,12 +18,14 @@ const four = $('.four')
 const five = $('.five')
 const six = $('.six')
 const seven = $('.seven')
+const dice = $('.dice')
 //Variables
 let round = 0
-let globalPlayer1 = 12
+let globalPlayer1 = 0
 let globalPlayer2 = 0
 let playerInGame = 0
 let diceRender = 0
+let gameOn
 //Instructions
 
 newGame.click(() => {
@@ -53,56 +55,66 @@ newGame.hover(
 )
 // Functions
 function rollAgain() {
-    diceRoll(0)
-    let randomDiceShot = Math.floor(Math.random() * 6)
-    console.log(randomDiceShot)
-    if (randomDiceShot !== 1) {
-        round += randomDiceShot
-        diceRender = randomDiceShot
-        diceRoll(diceRender)
-        if (playerInGame === 1) {
-            round1.text(round)
-        } else {
-            round2.text(round)
-        }
-    } else {
-        round = 0
-        diceRoll(1)
-        if (playerInGame === 1) {
-            playerInGame = 2
-            player1.toggleClass('active-player')
-            player2.toggleClass('active-player')
-            round1.text(0)
-        } else {
-            playerInGame = 1
-            player2.toggleClass('active-player')
-            player1.toggleClass('active-player')
-            round2.text(0)
-        }
+    if (gameOn) {
+        dice.addClass('dice-rotation')
+        diceRoll(0)
+        let randomDiceShot = Math.floor(Math.random() * 6)
+        console.log(randomDiceShot)
+        setTimeout(() => {
+            if (randomDiceShot !== 1) {
+                console.log('execute')
+                round += randomDiceShot
+                diceRender = randomDiceShot
+                diceRoll(diceRender)
+                if (playerInGame === 1) {
+                    round1.text(round)
+                } else {
+                    round2.text(round)
+                }
+            } else {
+                round = 0
+                diceRoll(1)
+                if (playerInGame === 1) {
+                    playerInGame = 2
+                    player1.toggleClass('active-player')
+                    player2.toggleClass('active-player')
+                    round1.text(0)
+                } else {
+                    playerInGame = 1
+                    player2.toggleClass('active-player')
+                    player1.toggleClass('active-player')
+                    round2.text(0)
+                }
+            }
+            dice.removeClass('dice-rotation')
+        }, 2100)
     }
 }
 
 function hold() {
-    if (playerInGame === 1) {
-        globalPlayer1 += round
-        round = 0
-        playerInGame = 2
-        round1.text(0)
-        player1.toggleClass('active-player')
-        player2.toggleClass('active-player')
-        totalPlayer1.text(globalPlayer1)
-    } else {
-        globalPlayer2 += round
-        round = 0
-        playerInGame = 1
-        round2.text(0)
-        player2.toggleClass('active-player')
-        player1.toggleClass('active-player')
-        totalPlayer2.text(globalPlayer2)
+    if (gameOn) {
+        if (playerInGame === 1) {
+            globalPlayer1 += round
+            round = 0
+            playerInGame = 2
+            round1.text(0)
+            player1.toggleClass('active-player')
+            player2.toggleClass('active-player')
+            totalPlayer1.text(globalPlayer1)
+        } else {
+            globalPlayer2 += round
+            round = 0
+            playerInGame = 1
+            round2.text(0)
+            player2.toggleClass('active-player')
+            player1.toggleClass('active-player')
+            totalPlayer2.text(globalPlayer2)
+        }
     }
 }
 
 function playAgain() {
+    gameOn = true
     round = 0
     globalPlayer1 = 0
     globalPlayer2 = 0
