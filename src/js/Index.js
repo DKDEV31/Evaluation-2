@@ -25,7 +25,8 @@ let globalPlayer1 = 0
 let globalPlayer2 = 0
 let playerInGame = 0
 let diceRender = 0
-let gameOn
+let gameOn = false
+let timer
 //Instructions
 
 newGame.click(() => {
@@ -46,21 +47,22 @@ rollDice.hover(
     }
 )
 holdPoint.hover(
-    () => holdPointSvg.css('color', 'white'),
-    () => holdPointSvg.css('color', 'red')
+    () => holdPointSvg.css('color', 'black'),
+    () => holdPointSvg.css('color', ' #e74c3c')
 )
 newGame.hover(
-    () => newGameSvg.css('color', 'white'),
-    () => newGameSvg.css('color', 'red')
+    () => newGameSvg.css('color', 'black'),
+    () => newGameSvg.css('color', ' #e74c3c')
 )
 // Functions
 function rollAgain() {
     if (gameOn) {
+        clearTimeout(timer)
         dice.addClass('dice-rotation')
         diceRoll(0)
         let randomDiceShot = Math.floor(Math.random() * 6)
         console.log(randomDiceShot)
-        setTimeout(() => {
+        timer = setTimeout(() => {
             if (randomDiceShot !== 1) {
                 console.log('execute')
                 round += randomDiceShot
