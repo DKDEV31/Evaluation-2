@@ -1,5 +1,13 @@
 /* General */
-
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #e74c3c;
+    --player-size: 2em;
+    --score-title-size: 1.3em;
+    --round-score-size: 1.5em;
+    --global-score-size: 2.5em;
+    --page-title-size: 2.5em;
+}
 .game-content {
     display: grid;
     grid-template-columns: 100px 1fr 1fr 1fr 100px;
@@ -7,7 +15,7 @@
     height: 100%;
     width: 100%;
     font-family: 'Lato';
-    background: linear-gradient(to right, lightgrey 50%, white 50%);
+    background: linear-gradient(to right, #f0f0f0 50%, white 50%);
 }
 .title-wrapper {
     grid-row: 1;
@@ -17,13 +25,16 @@
     display: flex;
     flex-direction: row;
     margin-right: 50px;
+    background: none;
+    outline: none;
 }
 .new-game {
     margin: 0;
     cursor: pointer;
+    font-size: var(--page-title-size);
 }
 .new-game-icon {
-    color: red;
+    color: var(--secondary-color);
 }
 
 .player1 {
@@ -52,15 +63,27 @@
     flex-direction: column;
     width: 130px;
     height: 100px;
-    background: red;
+    background: var(--secondary-color);
     position: relative;
 }
 .current-score-wrapper > h5 {
     margin: 0;
+    font-size: var(--score-title-size);
+}
+.current-score-wrapper > span {
+    font-size: var(--score-size);
+    color: var(--primary-color);
 }
 .total-score-wrapper {
     display: flex;
     flex-direction: column;
+}
+.total-score-wrapper > h3 {
+    font-size: var(--player-size);
+}
+.total-score-wrapper > span {
+    font-size: var(--global-score-size);
+    color: var(--secondary-color);
 }
 
 /*Section game-controls */
@@ -68,7 +91,7 @@
     width: 120px;
     height: 120px;
     margin-top: 70px;
-    background: white;
+    background: var(--primary-color);
     border-radius: 3px;
     box-shadow: 1px 4px 26px 5px rgba(0, 0, 0, 0.19);
     transform-origin: center;
@@ -82,14 +105,20 @@
 .roll-wrapper {
     display: flex;
     flex-direction: row;
+    background: none;
+    font-size: var(--score-title-size);
+    outline: none;
 }
 .hold-wrapper {
     display: flex;
     flex-direction: row;
+    background: none;
+    font-size: var(--score-title-size);
+    outline: none;
 }
 .roll-wrapper > i,
 .hold-wrapper > i {
-    color: red;
+    color: var(--secondary-color);
     transform-origin: center;
     transform-box: fill-box;
     transition: transform 1s ease-in-out;
@@ -113,7 +142,7 @@
     border-radius: 50%;
     width: 15px;
     height: 15px;
-    background: red;
+    background: var(--secondary-color);
     right: -30px;
     top: 6px;
     position: absolute;
