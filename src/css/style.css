@@ -8,13 +8,20 @@
     --global-score-size: 2.5em;
     --page-title-size: 2.5em;
 }
+body {
+    max-height: none;
+    height: auto;
+    overflow: auto;
+    position: static;
+}
 .game-content {
     display: grid;
     grid-template-columns: 100px 1fr 1fr 1fr 100px;
     grid-template-rows: 120px 1fr 120px;
-    height: 100%;
     width: 100%;
+    height: 100vh;
     font-family: 'Lato';
+    position: relative;
     background: linear-gradient(to right, #f0f0f0 50%, white 50%);
 }
 .title-wrapper {
@@ -130,6 +137,51 @@
     cursor: pointer;
 }
 
+/*Section Winner */
+.winner-wrapper {
+    height: 100%;
+    width: 100%;
+    display: none;
+    opacity: 0;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 0;
+    transition: all 2s ease-in-out;
+}
+.winner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    text-align: center;
+    align-items: center;
+    color: var(--secondary-color);
+    font-family: 'Press Start 2P';
+}
+.winner-player {
+    font-weight: bold;
+    font-size: var(--player-size);
+}
+.you-win {
+    font-size: 3.5em;
+    animation: youWin 2s ease-in-out infinite;
+}
+.replay-button {
+    background: none;
+    color: var(--secondary-color);
+    font-size: var(--player-size);
+    border: 2px solid #e74c3c;
+    border-radius: 4px;
+    padding: 10px;
+    width: 300px;
+}
+.replay-button:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
 /* Active player */
 
 .active-player {
@@ -183,7 +235,7 @@
     transition: all 0.5s ease-in-out;
 }
 
-/* Dice Rotation */
+/* Animations*/
 
 @keyframes diceRotation {
     0% {
@@ -196,4 +248,49 @@
 
 .dice-rotation {
     animation: 2s diceRotation ease-in-out;
+}
+
+@keyframes youWin {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Media querys responsive */
+
+@media screen and (max-width: 870px) {
+    .game-content {
+        grid-template-columns: 100px 1fr 100px;
+        grid-template-rows: 100px 1fr 1fr 1fr 100px;
+        gap: 20px;
+        height: 100%;
+    }
+    .title-wrapper {
+        grid-row: 1;
+        grid-column: 2;
+    }
+    .dice {
+        margin-top: 50px;
+    }
+    .player1 {
+        grid-row: 2;
+        grid-column: 2;
+        height: 50vh;
+    }
+    .game-controls {
+        grid-row: 3;
+        grid-column: 2;
+        height: 50vh;
+    }
+    .player2 {
+        grid-row: 4;
+        grid-column: 2;
+        height: 50vh;
+    }
 }

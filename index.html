@@ -3,8 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="A little Dice Game for killing some time." />
+        <meta name="robots" content="index" />
         <link rel="shortcut icon" href="/src/Assets/Favicon/favicon.ico" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
         <link
             rel="stylesheet"
@@ -25,6 +31,13 @@
     </head>
     <body>
         <main class="game-content">
+            <section class="winner-wrapper">
+                <div class="winner-content">
+                    <span class="winner-player">Player1</span>
+                    <span class="you-win">You Win !</span>
+                    <button class="replay-button">Replay</button>
+                </div>
+            </section>
             <button class="title-wrapper ion-align-items-center ion-justify-content-between">
                 <i class="new-game-icon far fa-play-circle fa-2x ion-padding"></i>
                 <h1 class="new-game ion-text-uppercase">new game</h1>
