@@ -294,3 +294,31 @@ body {
         height: 50vh;
     }
 }
+@media screen and (max-width: 474px) {
+    .game-content {
+        background: #f0f0f0;
+        grid-template-rows: 100px 1fr 1fr 1fr;
+    }
+    .title-wrapper {
+        grid-row: 1;
+        grid-column: 1/4;
+    }
+    .dice {
+        margin-top: 50px;
+    }
+    .player1 {
+        grid-row: 2;
+        grid-column: 1/4;
+        height: 50vh;
+    }
+    .game-controls {
+        grid-row: 3;
+        grid-column: 1/4;
+        height: 50vh;
+    }
+    .player2 {
+        grid-row: 4;
+        grid-column: 1/4;
+        height: 50vh;
+    }
+}
